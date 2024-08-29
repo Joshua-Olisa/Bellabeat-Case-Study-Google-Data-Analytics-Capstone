@@ -5,25 +5,26 @@
 
 ##### [Tableau Story Presentation to Skateholders](https://public.tableau.com/app/profile/emily.liang7497/viz/BellabeatFitnessDataAnalysis-GoogleDataAnalyticsCapstone/Story1)
 
-#
-
-_The case study follows the six step data analysis process:_
-
-### ❓ [Ask](#1-ask)
-### 💻 [Prepare](#2-prepare)
-### 🛠 [Process](#3-process)
-### 📊 [Analyze](#4-analyze)
-### 📋 [Share](#5-share)
-### 🧗‍♀️ [Act](#6-act)
-
 ## Background Infromation
 Bellabeat is a high-tech company that manufactures health-focused smart products. Collecting data on activity, sleep, stress, and reproductive health has allowed Bellabeat to empower women with knowledge about their own health and habits.
 
 ## Business Task
 Sršen, the company’s cofounder, would like an analysis of Bellabeat’s available consumer data to identify opportunities for growth. She has asked the marketing analytics team to analyze smart device usage data in order to gain insight into how people are already using their smart devices. Then, using this information, she would like recommendations for how these trends can inform Bellabeat marketing strategy. Therefore, in this case study, I will answer the following questions:
 
-What are some trends in smart device usage?
-How can these trends help influence Bellabeat marketing strategy?
+#1-What are some trends in smart device usage?
+#2-How can these trends help influence Bellabeat marketing strategy?
+#
+
+_The case study follows the six step data analysis process:_
+
+### [Ask](#1-ask)
+### [Prepare](#2-prepare)
+### [Process](#3-process)
+### [Analyze](#4-analyze)
+### [Share](#5-share)
+### [Act](#6-act)
+
+
 
 ## 1. Ask
 💡 **BUSINESS TASK: Analyze Fitbit data to gain insight and help guide marketing strategy for Bellabeat to grow as a global player.**
