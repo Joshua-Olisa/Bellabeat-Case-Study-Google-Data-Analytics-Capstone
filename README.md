@@ -51,7 +51,7 @@ Several datasets will not be used for the analysis because of the following reas
 - They are in a minute-level output.
 - They are too small of a sample size to provide credible insights
 
-## Dataset Limitations:
+### Dataset Limitations:
 The dataset has a few limitations:
 
 - No Metadata Provided: Information such as location, lifestyle, weather etc. would provide a deeper context to the data obtained.
@@ -61,13 +61,15 @@ The dataset has a few limitations:
 - Most data is recorded from Tuesday to Thursday, which may not be comprehensive enough to form an accurate analysis. 
 
 ## 3. Process
-[Back to Top](#author-emi-ly)
+[Back to Top](#author-Joshua-Olisa)
 
 Examine the data for the daily_activity table
 Imported all the datasets
+
 -- 
 Fitbit_data_1 contains data from 3.12.16-4.11.16
 Fitbit_data_2 contains data from 4.12.16-5.12.16
+
 -- 
 
 
