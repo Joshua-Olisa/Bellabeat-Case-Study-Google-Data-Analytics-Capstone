@@ -45,31 +45,31 @@ The dataset has 18 CSV. The data also follow a ROCCC approach:
 - Current: Data is from March 2016 to May 2016'
 - Cited: Unknown.
 
-Several data frames will not be used for the analysis because of the following reasons:
+Several datasets will not be used for the analysis because of the following reasons:
 
 - They are subsets of larger, more complete data frames.
 - They are in a minute-level output.
 - They are too small of a sample size to provide credible insights
 
 ## Dataset Limitations:
-The dataset has limitations:
+The dataset has a few limitations:
 
-- Only 30 user data is available. The central limit theorem general rule of n≥30 applies and we can use the t test for statstic reference. However, a larger sample size is preferred for the analysis.
+- No Metadata Provided: Information such as location, lifestyle, weather etc. would provide a deeper context to the data obtained.
+- Only 30 user data is available. Which is too small of a sample size to make obtain any concrete insights. A larger sample size is preferred for the analysis.
 - The dataset contains data across a two month period in 2016 only. For a deeper and more accurate analysis of trends, we would need data from the current year, preferably collected for an entire year to look at if trends vary during different times of year.
-- Upon further investigation with ```n_distinct()``` to check for unique user Id, the set has 33 user data from daily activity, 24 from sleep and only 8 from weight. There are 3 extra users and some users did not record their data for tracking daily activity and sleep.
 - The dataset does not contain any key demographic infromationabout the users eg; Age, Location, Gender.
 - Most data is recorded from Tuesday to Thursday, which may not be comprehensive enough to form an accurate analysis. 
 
 ## 3. Process
 [Back to Top](#author-emi-ly)
 
-Examine the data, check for NA, and remove duplicates for three main tables: daily_activity, sleep_day and weight:
-```
-dim(sleep_day)
-sum(is.na(sleep_day))
-sum(duplicated(sleep_day))
-sleep_day <- sleep_day[!duplicated(sleep_day), ]
-```
+Examine the data for the daily_activity table
+Imported all the datasets
+-- 
+Fitbit_data_1 contains data from 3.12.16-4.11.16
+Fitbit_data_2 contains data from 4.12.16-5.12.16
+-- 
+
 
 Convert ActivityDate into date format and add a column for day of the week:
 ```
