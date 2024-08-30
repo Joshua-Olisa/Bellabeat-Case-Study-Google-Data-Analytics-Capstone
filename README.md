@@ -63,11 +63,10 @@ The dataset has a few limitations:
 Examine the data for the daily_activity table
 Imported all the datasets
 
--- 
+``` 
 Fitbit_data_1 contains data from 3.12.16-4.11.16
 Fitbit_data_2 contains data from 4.12.16-5.12.16
-
--- 
+```
 
 
 Convert ActivityDate into date format and add a column for day of the week:
