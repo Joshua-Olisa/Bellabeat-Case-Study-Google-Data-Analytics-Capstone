@@ -130,7 +130,7 @@ HAVING
      Active Users >=17
 ORDER BY 
 ```
-![image](https://user-images.githubusercontent.com/62857660/136252217-53d355de-2c25-4185-8e6d-27ba087573ae.png)
+![Sheet 2](https://github.com/user-attachments/assets/9f8c7d1c-ee3b-4ae7-9614-cefe9fc7b6a0)
 
 
 
