@@ -101,6 +101,7 @@ ORDER BY
 <img width="621" alt="Screenshot 2024-08-30 145502" src="https://github.com/user-attachments/assets/06e37fad-059c-4123-a212-490095351924">
 
 
+
 The American Heart Association and World Health Organization recommend at least 150 minutes of moderate-intensity activity or 75 minutes of vigorous activity, or a combination of both, each week. That means it needs an daily goal of 21.4 minutes of FairlyActiveMinutes or 10.7 minutes of VeryActiveMinutes.
 
 In our dataset on averge 12 users met fairly active minutes or very active minutes daily.
@@ -114,7 +115,8 @@ GROUP BY ActivityDate;
 ### Total Steps:
 [Back to Analyze](#4-analyze)
 
-How active the users are weekly in total steps. Tuesday and Saturdays the users take the most steps. 
+How active the users are weekly in total steps. Saturdays, Monday and Wednesday the users take the most steps.
+
 ```
 SELECT 
     ActivityDate
@@ -128,6 +130,7 @@ HAVING
      Active Users >=17
 ORDER BY 
 ```
+
 ![Sheet 2](https://github.com/user-attachments/assets/9f8c7d1c-ee3b-4ae7-9614-cefe9fc7b6a0)
 
 
@@ -135,7 +138,6 @@ ORDER BY
 [Back to Analyze](#4-analyze)
 
 How Active are user during the day
-The more active that you're, the more steps you take, and the more calories you will burn. This is an obvious fact, but we can still look into the data to find any interesting. Here we see that some users who are sedentary, take minimal steps, but still able to burn over 1500 to 2500 calories compare to users who are more active, take more steps, but still burn similar calories.
 
 ```
 SELECT 
@@ -169,9 +171,8 @@ ORDER BY
 Conclusion based on our analysis:
 - Sedentary make up a significant portion, 81% of users daily active minutes. Users spend on avg 12 hours a day in sedentary minutes, 4 hours lightly active, and only half-hour in fairly + very active! 
 - Sedentary minutes took up the majority of participants’ days and were fairly consistent throughout the week.
-- Saturdaysx, Monday and Wednesday the users take the most steps.
+- Saturdays, Monday and Wednesday the users take the most steps.
 - Users who take more steps per day are more likely to engage in “very active minutes”
-
 
 
 ## Recommendations
