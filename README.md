@@ -155,7 +155,7 @@ HAVING count(Id) >=17
 ORDER BY 
     ActivityDate;
 ```
-![image](https://user-images.githubusercontent.com/62857660/136260311-a379b303-76ac-426c-9c30-ea2695569632.png)
+![Sheet 3](https://github.com/user-attachments/assets/373041b0-cb4e-401b-b352-0765da60a192)
 
 Comparing the four active levels to the total steps, we see most data is concentrated on users who take about 5000 to 15000 steps a day. These users spent an average between 8 to 13 hours in sedentary, 5 hours in lightly active, and 1 to 2 hour for fairly and very active. 
 
