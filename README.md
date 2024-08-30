@@ -61,51 +61,14 @@ The dataset has a few limitations:
 [Back to Top](#author-Joshua-Olisa)
 
 Examine the data for the daily_activity table
-Imported all the datasets
 
-``` 
-Fitbit_data_1 contains data from 3.12.16-4.11.16
-Fitbit_data_2 contains data from 4.12.16-5.12.16
-```
+Opened the CSV file in Excel; I checked the file for duplicates and blank or missings records. Some record in the ActivityDate Column where inputed as texts, Before any analysis was conducted I formatted the Column to a date format
 
-
-Convert ActivityDate into date format and add a column for day of the week:
-```
-daily_activity <- daily_activity %>% mutate( Weekday = weekdays(as.Date(ActivityDate, "%m/%d/%Y")))
-```
-
-Check to see if we have 30 users using ```n_distinct()```. The dataset has 33 user data from daily activity, 24 from sleep and only 8 from weight. If there is a discrepency such as in the weight table, check to see how the data are recorded. The way the user record the data may give you insight on why there is missing data. 
-```
-weight %>% 
-  filter(IsManualReport == "True") %>% 
-  group_by(Id) %>% 
-  summarise("Manual Weight Report"=n()) %>%
-  distinct()
- ```
+The dataset was imported in MySQL for analysis in 4. Analyze!
  
-Additional insight to be awared of is how often user record their data. We can see from the ```ggplot()``` bar graph that the data are greatest from Tuesday to Thursday. We need to investigate the data recording distribution. Monday and Friday are both weekdays, why isn't the data recordings as much as the other weekdays? 
-```
-ggplot(data=merged_data, aes(x=Weekday))+
-  geom_bar(fill="steelblue")
-```
-![image](https://user-images.githubusercontent.com/62857660/136279088-a4c39b17-990b-4d7f-9092-7307d1c9a37b.png)
-
-
-⛔ From weekday's total asleep minutes, we can see the graph look almost **same** as the graph above! We can confirmed that most sleep data is also recorded during Tuesday to Thursday. This raised a question "how comprehensive are the data to form an accurate analysis?"
-
-![image](https://user-images.githubusercontent.com/62857660/136279328-61059fcf-1554-478a-9dd6-680d243df486.png)
-
-Merge the three tables:
-```
-merged_data <- merge(merged_activity_sleep, weight, by = c("Id"), all=TRUE)
-```
-
-Clean the data to prepare for analysis in 4. Analyze!
-
 ## 4. Analyze
-[Back to Top](#author-emi-ly)
+[Back to Top](#author-Joshua-Olisa)
 
--  [Summary](#summary)
 -  [Active Minutes](#active-minutes)
 -  [Noticebal Day](#noticeable-day)
 -  [Total Steps](#total-steps)
@@ -113,29 +76,28 @@ Clean the data to prepare for analysis in 4. Analyze!
 -  [Sleep](#sleep)
 
 
-### Summary:
-Check min, max, mean, median and any outliers. Avg weight is 135 pounds with BMI of 24 and burn 2050 calories. Avg steps is 10200, max is almost triple that 36000 steps. Users spend on avg 12 hours a day in sedentary minutes, 4 hours lightly active, only half hour in fairly+very active! Users also gets about 7 hour of sleep. 
-```
-merged_data %>%
-  dplyr::select(Weekday,
-         TotalSteps,
-         TotalDistance,
-         VeryActiveMinutes,
-         FairlyActiveMinutes,
-         LightlyActiveMinutes,
-         SedentaryMinutes,
-         Calories,
-         TotalMinutesAsleep,
-         TotalTimeInBed,
-         WeightPounds,
-         BMI
-         ) %>%
-  summary()
-```
-![summary](https://user-images.githubusercontent.com/62857660/136262678-18377ce4-3443-48a4-b108-eba6a273f963.PNG)
-
 ### Active Minutes:
 [Back to Analyze](#4-analyze)
+
+```
+SELECT 
+	   ActivityDate
+    SUM(VeryActiveMinutes) AS total_very_active_minutes,
+    SUM(FairlyActiveMinutes) AS total_fairly_active_minutes,
+    SUM(LightlyActiveMinutes) AS total_lightly_active_minutes,
+    SUM(SedentaryMinutes) AS total_sedentary_minutes,
+    avg(TotalSteps) As 'Avg.Steps',
+    avg(VeryActiveMinutes + FairlyActiveMinutes + LightlyActiveMinutes + SedentaryMinutes) as 'Avg.Active Minutes',
+    count(Id) as Active_Users
+FROM 
+   fitbit_data.dailyactivity
+GROUP BY 
+    ActivityDate
+HAVING
+     count(Id) >=17
+ORDER BY 
+
+```
 
 Percentage of active minutes in the four categories: very active, fairly active, lightly active and sedentary. From the pie chart, we can see that most users spent 81.3% of their daily activity in sedentary minutes and only 1.74% in very active minutes. 
 ```
