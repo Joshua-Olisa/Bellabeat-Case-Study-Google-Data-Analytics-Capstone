@@ -71,7 +71,7 @@ The dataset was imported in MySQL for analysis in 4. Analyze!
 
 -  [Active Minutes](#active-minutes)
 -  [Total Steps](#total-steps)
--  [Minutes of Activty Per Day](#interesting-finds)
+-  [Minutes of Activty Per Day](#minutes-of-activty-per-day)
 -  [Sleep](#sleep)
 
 
@@ -115,7 +115,6 @@ GROUP BY ActivityDate;
 ### Total Steps:
 [Back to Analyze](#4-analyze)
 
-
 How active the users are weekly in total steps. Tuesday and Saturdays the users take the most steps. 
 ```
 SELECT 
@@ -138,14 +137,23 @@ ORDER BY
 ### Minutes of Activty Per Day:
 [Back to Analyze](#4-analyze)
 
+How Active are user during the day
 The more active that you're, the more steps you take, and the more calories you will burn. This is an obvious fact, but we can still look into the data to find any interesting. Here we see that some users who are sedentary, take minimal steps, but still able to burn over 1500 to 2500 calories compare to users who are more active, take more steps, but still burn similar calories.
 
 ```
-ggplot(data=daily_activity, aes(x=TotalSteps, y = Calories, color=SedentaryMinutes))+ 
-  geom_point()+ 
-  stat_smooth(method=lm)+
-  scale_color_gradient(low="steelblue", high="orange")
-
+SELECT 
+    ActivityDate,
+    AVG(VeryActiveMinutes) AS 'Very Active Minutes',
+    AVG(FairlyActiveMinutes) AS 'Fairly Active Minutes',
+    AVG(LightlyActiveMinutes) AS 'Lightly Active Minutes',
+    AVG(SedentaryMinutes) AS 'Sedentary Minutes'
+FROM 
+   fitbit_data_1.dailyactivity
+GROUP BY 
+    ActivityDate
+HAVING count(Id) >=17
+ORDER BY 
+    ActivityDate;
 ```
 ![image](https://user-images.githubusercontent.com/62857660/136260311-a379b303-76ac-426c-9c30-ea2695569632.png)
 
