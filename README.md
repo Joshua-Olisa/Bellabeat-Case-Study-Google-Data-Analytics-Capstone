@@ -158,44 +158,24 @@ ORDER BY
 ## 5. Share 
 [Back to Top](#author-Joshua-Olisa)
 
-### 🎨 [Bellabeat Data Analysis Dashboard](https://public.tableau.com/app/profile/joshua.olisa.emodoh/viz/BellaBeats_17250435748210/Dashboard1)
+### [Bellabeat Data Analysis Dashboard](https://public.tableau.com/app/profile/joshua.olisa.emodoh/viz/BellaBeats_17250435748210/Dashboard1)
 
 ![Dashboard 1](https://github.com/user-attachments/assets/81b8343d-ca65-4c11-95ea-b8a844c75a16)
-
-### 🎨 [Bellabeat Data Presentation in Tableau](https://public.tableau.com/app/profile/emily.liang7497/viz/BellabeatFitnessDataAnalysis-GoogleDataAnalyticsCapstone/Story1)
-
-![present](https://user-images.githubusercontent.com/62857660/136821333-3e30a827-81d9-43c5-bd7f-98a1680901d9.PNG)
-
 
 
 ## 6. Act
 [Back to Top](#author-Joshua-Olisa)
 
 Conclusion based on our analysis:
-- Sedentary make up a significant portion, 81% of users daily active minutes. Users spend on avg 12 hours a day in sedentary minutes, 4 hours lightly active, and only half-hour in fairly+very active! 
-- We see the most change on Saturday: users take more steps, burn more calories, and spend less time sedentary. Sunday is the most "lazy" day for users. 
-- 54% of the users who recorded their sleep data spent 55 minutes awake in bed before falling asleep.
-- Users takes the most steps from 5 PM to 7 PM
-Users who are sedentary take minimal steps and burn 1500 to 2500 calories compared to users who are more active, take more steps, but still burn similar calories.
+- Sedentary make up a significant portion, 81% of users daily active minutes. Users spend on avg 12 hours a day in sedentary minutes, 4 hours lightly active, and only half-hour in fairly + very active! 
+- Sedentary minutes took up the majority of participants’ days and were fairly consistent throughout the week.
+- Saturdaysx, Monday and Wednesday the users take the most steps.
+- Users who take more steps per day are more likely to engage in “very active minutes”
 
 
 
-Marketing recommendations to expand globally:
+## Recommendations
 
-##### 🔢  Obtain more data for an accurate analysis, encouraging users to use a wifi-connected scale instead of manual weight entries. 
+Data collection: Prioritize the collection of comprehensive user data, including body fat percentage, demographic data, to improve the accuracy and depth of analysis on smart devices. Encourage users to use a wifi-connected scale instead of manual weight entries. 
 
-##### 🚲  Educational healthy style campaign encourages users to have short active exercises during the week, longer during the weekends, especially on Sunday where we see the lowest steps and most sedentary minutes.
-
-##### 🎁  Educational healthy style campaign can pair with a point-award incentive system. Users completing the whole week's exercise will receive Bellabeat points on products/memberships.
-
-##### 🏃‍♂️ The product, such as Leaf wellness tracker, can beat or vibrate after a prolonged period of sedentary minutes, signaling the user it's time to get active! Similarly, it can also remind the user it's time to sleep after sensing a prolonged awake time in bed.
-
-
-
-
-
-
-
-
-
-
+Educational healthy style campaign encourages users to have short active exercises during the week, longer during the weekends, especially on Sunday where we see the lowest steps and most sedentary minutes.
