@@ -70,7 +70,6 @@ The dataset was imported in MySQL for analysis in 4. Analyze!
 [Back to Top](#author-Joshua-Olisa)
 
 -  [Active Minutes](#active-minutes)
--  [Noticebal Day](#noticeable-day)
 -  [Total Steps](#total-steps)
 -  [Interesting Finds](#interesting-finds)
 -  [Sleep](#sleep)
@@ -79,9 +78,11 @@ The dataset was imported in MySQL for analysis in 4. Analyze!
 ### Active Minutes:
 [Back to Analyze](#4-analyze)
 
+Percentage of active minutes in the four categories: very active, fairly active, lightly active and sedentary. From the pie chart, we can see that most users spent 81.47% of their daily activity in sedentary minutes and only 1.69% in very active minutes. 
+
 ```
 SELECT 
-	   ActivityDate
+    ActivityDate
     SUM(VeryActiveMinutes) AS total_very_active_minutes,
     SUM(FairlyActiveMinutes) AS total_fairly_active_minutes,
     SUM(LightlyActiveMinutes) AS total_lightly_active_minutes,
@@ -96,64 +97,38 @@ GROUP BY
 HAVING
      count(Id) >=17
 ORDER BY 
-
-```
-
-Percentage of active minutes in the four categories: very active, fairly active, lightly active and sedentary. From the pie chart, we can see that most users spent 81.3% of their daily activity in sedentary minutes and only 1.74% in very active minutes. 
-```
-percentage <- data.frame(
-  level=c("Sedentary", "Lightly", "Fairly", "Very Active"),
-  minutes=c(sedentary_percentage,lightly_percentage,fairly_percentage,active_percentage)
-)
-
-plot_ly(percentage, labels = ~level, values = ~minutes, type = 'pie',textposition = 'outside',textinfo = 'label+percent') %>%
-  layout(title = 'Activity Level Minutes',
-         xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
-         yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
-```
+````
 
 <img width="621" alt="Screenshot 2024-08-30 145502" src="https://github.com/user-attachments/assets/06e37fad-059c-4123-a212-490095351924">
 
 
 The American Heart Association and World Health Organization recommend at least 150 minutes of moderate-intensity activity or 75 minutes of vigorous activity, or a combination of both, each week. That means it needs an daily goal of 21.4 minutes of FairlyActiveMinutes or 10.7 minutes of VeryActiveMinutes.
 
-In our dataset, **30 users** met fairly active minutes or very active minutes.
+In our dataset on averge 12 users met fairly active minutes or very active minutes daily.
 ```
-active_users <- daily_activity %>%
-  filter(FairlyActiveMinutes >= 21.4 | VeryActiveMinutes>=10.7) %>% 
-  group_by(Id) %>% 
-  count(Id) 
+Select ActivityDate, Count(Id)
+FROM fitbit_data.dailyactivity
+WHERE FairlyActiveMinutes >= 21.4 OR VeryActiveMinutes >= 10.7
+GROUP BY ActivityDate;
 ```
-
-### Noticeable Day:
-[Back to Analyze](#4-analyze)
-
-The bar graph shows that there is a jump on Saturday: user spent LESS time in sedentary minutes and take MORE steps. Users are out and about on Saturday. 
-
-![image](https://user-images.githubusercontent.com/62857660/136281021-fea4e732-982c-4404-8650-c3e943076856.png)
-![image](https://user-images.githubusercontent.com/62857660/136281035-2b190f9e-a5a5-44c2-8183-20b1f7441e8d.png)
-
-
-
-
 
 ### Total Steps:
 [Back to Analyze](#4-analyze)
 
-Let's look at how active the users are per hourly in total steps. From 5PM to 7PM the users take the most steps. 
-```
-ggplot(data=hourly_step, aes(x=Hour, y=StepTotal, fill=Hour))+
-  geom_bar(stat="identity")+
-  labs(title="Hourly Steps")
-```
-![image](https://user-images.githubusercontent.com/62857660/136235391-bb22c15d-93aa-494d-bce2-76a984274fb7.png)
-
 
 How active the users are weekly in total steps. Tuesday and Saturdays the users take the most steps. 
 ```
-ggplot(data=merged_data, aes(x=Weekday, y=TotalSteps, fill=Weekday))+ 
-  geom_bar(stat="identity")+
-  ylab("Total Steps")
+SELECT 
+    ActivityDate
+    avg(TotalSteps) As 'Avg.Steps',
+    count(Id) as 'Active Users'
+FROM 
+   fitbit_data.dailyactivity
+GROUP BY 
+    ActivityDate
+HAVING
+     Active Users >=17
+ORDER BY 
 ```
 ![image](https://user-images.githubusercontent.com/62857660/136252217-53d355de-2c25-4185-8e6d-27ba087573ae.png)
 
