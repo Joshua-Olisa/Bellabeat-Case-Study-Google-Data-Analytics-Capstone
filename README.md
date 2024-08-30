@@ -72,7 +72,6 @@ The dataset was imported in MySQL for analysis in 4. Analyze!
 -  [Active Minutes](#active-minutes)
 -  [Total Steps](#total-steps)
 -  [Minutes of Activty Per Day](#minutes-of-activty-per-day)
--  [Sleep](#sleep)
 
 
 ### Active Minutes:
@@ -132,8 +131,6 @@ ORDER BY
 ![Sheet 2](https://github.com/user-attachments/assets/9f8c7d1c-ee3b-4ae7-9614-cefe9fc7b6a0)
 
 
-
-
 ### Minutes of Activty Per Day:
 [Back to Analyze](#4-analyze)
 
@@ -157,41 +154,9 @@ ORDER BY
 ```
 ![Sheet 3](https://github.com/user-attachments/assets/373041b0-cb4e-401b-b352-0765da60a192)
 
-### Sleep:
-[Back to Analyze](#4-analyze)
-
-According to article: [Fitbit Sleep Study](https://blog.fitbit.com/sleep-study/#:~:text=The%20average%20Fitbit%20user%20is,is%20spent%20restless%20or%20awake.&text=People%20who%20sleep%205%20hours,the%20beginning%20of%20the%20night.), 55 minutes are spent awake in bed before going to sleep. We have 13 users in our dataset spend 55 minutes awake before alseep. 
-
-```
-awake_in_bed <- mutate(sleep_day, AwakeTime = TotalTimeInBed - TotalMinutesAsleep)
-awake_in_bed <- awake_in_bed %>% 
-  filter(AwakeTime >= 55) %>% 
-  group_by(Id) %>% 
-  arrange(AwakeTime) 
-```
-
-We can use regression analysis look at the variables and correlation. For R-squared, 0% indicates that the model explains none of the variability of the response data around its mean. Higher % indicates that the model explains more of the variability of the response data around its mean. Postive slope means variables increase/decrease with each other, and negative means one variable go up and the other go down. We want to look at if users who spend more time in sedentary minutes spend more time sleeping as well. We can use regression analysis ```lm()``` to check for the dependent and indepedent variables. We also find that how many minutes an user asleep have an very weak correlation with how long they spend in sedentary minutes during the day.  
-```
-sedentary_vs_sleep.mod <- lm(SedentaryMinutes ~ TotalMinutesAsleep, data = merged_data)
-summary(sedentary_vs_sleep.mod)
-```
-![calvssteps2](https://user-images.githubusercontent.com/62857660/136107919-65c86392-4f12-4038-b3d3-09166d8d5381.PNG)
-
-How about calories vs asleep? Do people sleep more burn less calories? Plotting the two variables we can see that there is not much a correlation. 
-```
-ggplot(data=merged_data, aes(x=TotalMinutesAsleep, y = Calories, color=TotalMinutesAsleep))+ 
-  geom_point()+ 
-  labs(title="Total Minutes Asleep vs Calories")+
-  xlab("Total Minutes Alseep")+
-  stat_smooth(method=lm)+
-  scale_color_gradient(low="orange", high="steelblue")
-```
-![image](https://user-images.githubusercontent.com/62857660/136283073-360f9a07-e4ef-4307-9c65-4b877f62e58b.png)
-
-
 
 ## 5. Share 
-[Back to Top](#author-emi-ly)
+[Back to Top](#author-Joshua-Olisa)
 
 ### 🎨 [Bellabeat Data Analysis Dashboard](https://public.tableau.com/app/profile/emily.liang7497/viz/BellabeatFitnessDataAnalysisDashboard/GiantDashboard)
 
@@ -204,7 +169,7 @@ ggplot(data=merged_data, aes(x=TotalMinutesAsleep, y = Calories, color=TotalMinu
 
 
 ## 6. Act
-[Back to Top](#author-emi-ly)
+[Back to Top](#author-Joshua-Olisa)
 
 Conclusion based on our analysis:
 - Sedentary make up a significant portion, 81% of users daily active minutes. Users spend on avg 12 hours a day in sedentary minutes, 4 hours lightly active, and only half-hour in fairly+very active! 
