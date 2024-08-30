@@ -71,7 +71,7 @@ The dataset was imported in MySQL for analysis in 4. Analyze!
 
 -  [Active Minutes](#active-minutes)
 -  [Total Steps](#total-steps)
--  [Interesting Finds](#interesting-finds)
+-  [Minutes of Activty Per Day](#interesting-finds)
 -  [Sleep](#sleep)
 
 
@@ -135,7 +135,7 @@ ORDER BY
 
 
 
-### Interesting Finds:
+### Minutes of Activty Per Day:
 [Back to Analyze](#4-analyze)
 
 The more active that you're, the more steps you take, and the more calories you will burn. This is an obvious fact, but we can still look into the data to find any interesting. Here we see that some users who are sedentary, take minimal steps, but still able to burn over 1500 to 2500 calories compare to users who are more active, take more steps, but still burn similar calories.
