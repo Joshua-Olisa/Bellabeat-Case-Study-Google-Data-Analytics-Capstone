@@ -64,7 +64,7 @@ Examine the data for the daily_activity table
 
 Opened the CSV file in Excel; I checked the file for duplicates and blank or missings records. Some record in the ActivityDate Column where inputed as texts, Before any analysis was conducted I formatted the Column to a date format
 
-The dataset was imported in MySQL for analysis in 4. Analyze!
+The dataset was imported in MySQL for analysis
  
 ## 4. Analyze
 [Back to Top](#author-Joshua-Olisa)
